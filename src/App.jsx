@@ -1,9 +1,15 @@
-import { useState } from 'react'
+//import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
+import { useDispatch, useSelector } from 'react-redux'
+import { decrement, increment, incrementBy } from './store/slices/counter'
 
 function App() {
-  const [count, setCount] = useState(0)
+  //const [count, setCount] = useState(0)
+  //vamos a empezar a usa redux, en el callback le digo que del state, tome el objeto counter
+  // y lo desestructuro 
+  const { counter } = useSelector( state => state.counter)
+  const dispatch = useDispatch()
 
   return (
     <div className="App">
@@ -15,10 +21,16 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <h1>Vite + React</h1>
+      <h1>Counter : {counter}</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+        <button onClick={() => dispatch( increment() )}>
+          +1
+        </button>
+        <button onClick={() => dispatch( decrement() )}>
+          -1
+        </button>
+        <button onClick={() => dispatch( incrementBy(5) )}>
+          IncrementBy5
         </button>
       </div>
     </div>

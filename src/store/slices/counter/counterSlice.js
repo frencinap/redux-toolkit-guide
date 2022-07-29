@@ -4,7 +4,7 @@ import { createSlice } from '@reduxjs/toolkit'
 export const counterSlice = createSlice({
   name: 'counter',
   initialState: {
-    counter: 100
+    counter: 10
   },
   reducers: {
     increment: (state) => {
@@ -18,11 +18,15 @@ export const counterSlice = createSlice({
         state.counter -=1
     },
     incrementBy: (state, action) =>{
-        console.log(action)
+        //console.log(action)
         state.counter += action.payload
-    }
+    },
+    decrementBy: (state, action) =>{
+      //console.log(action)
+      state.counter -= action.payload
+  }
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement, incrementBy } = counterSlice.actions;
+export const { increment, decrement, incrementBy, decrementBy } = counterSlice.actions;

@@ -2,7 +2,7 @@
 import reactLogo from './assets/react.svg'
 import './App.css'
 import { useDispatch, useSelector } from 'react-redux'
-import { decrement, increment, incrementBy } from './store/slices/counter'
+import { decrement, increment, incrementBy, decrementBy } from './store/slices/counter'
 
 function App() {
   //const [count, setCount] = useState(0)
@@ -31,6 +31,9 @@ function App() {
         </button>
         <button onClick={() => dispatch( incrementBy(5) )}>
           IncrementBy5
+        </button>
+        <button onClick={() => dispatch( decrementBy(5) )}>
+          DecrementBy5
         </button>
       </div>
     </div>
